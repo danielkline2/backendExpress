@@ -112,15 +112,13 @@ app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // Middleware to parse JSON bodies
 
 // Load API keys from environment variables
-// const API_KEY_GOOGLE = process.env.GOOGLE_API_KEY;
-// const API_KEY_CONGRESS = process.env.CONGRESS_API_KEY;
 const API_KEY_GOOGLE = process.env.GOOGLE_API_KEY;
 const API_KEY_CONGRESS = process.env.CONGRESS_API_KEY;
 const DEV = process.env.DEV === "true"; // Convert string 'true' to boolean
 
 // 3. Define the port the server will run on
 // Uses the host's suggested port, or 3000 for local development
-const port = process.env.PORT || 3000;
+const port = process?.env?.PORT || 3000;
 
 // 4. Create a basic API endpoint
 // This handles GET requests to http://your-server-address/api
