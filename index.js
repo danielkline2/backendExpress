@@ -56,7 +56,7 @@ if (!API_KEY_GOOGLE) {
 
 // 3. Define the port the server will run on
 // Uses the host's suggested port, or 3000 for local development
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.get("/api/get_key_g", (req, res) => {
   /**
