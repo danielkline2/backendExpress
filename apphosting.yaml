@@ -35,7 +35,3 @@ env:
 
   - variable: DB_PASSWORD
     secret: DB_PASSWORD
-
-  - 
-
-  
