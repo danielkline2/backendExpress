@@ -11,14 +11,15 @@ const dbConfig = {
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  host: !process.env?.DB_HOST ? process.env.DB_HOST : "localhost",
 };
 
-// This logic handles both local/IP connections and the more secure socket connection
-if (!!process.env.DB_SOCKET_PATH && process.env.DB_SOCKET_PATH !== "false") {
-  dbConfig.socketPath = process.env.DB_SOCKET_PATH;
-} else {
-  dbConfig.host = process.env.DB_HOST;
-}
+// // This logic handles both local/IP connections and the more secure socket connection
+// if (!!process.env.DB_SOCKET_PATH && process.env.DB_SOCKET_PATH !== "false") {
+//   dbConfig.socketPath = process.env.DB_SOCKET_PATH;
+// } else {
+//   dbConfig.host = process.env.DB_HOST;
+// }
 
 const pool = mysql.createPool(dbConfig);
 

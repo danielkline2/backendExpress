@@ -1,5 +1,5 @@
 // Load environment variables in development
-if (process.env.NODE_ENV !== "production") {
+if (process.env?.LOCAL === "true") {
   require("dotenv").config();
 }
 // Import required modules
