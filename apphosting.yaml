@@ -22,7 +22,7 @@ env:
     secret: DB_PASSWORD
 
   - variable: DB_HOST
-    secret: DB_HOST
+    value: localhost
 
   - variable: DB_PORT
     secret: DB_PORT
@@ -31,7 +31,7 @@ env:
     secret: DB_NAME
 
   - variable: LOCAL
-    secret: LOCAL
+    value: false
 
   - variable: DB_PASSWORD
     secret: DB_PASSWORD

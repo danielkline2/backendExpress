@@ -11,7 +11,7 @@ const dbConfig = {
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  host: !process.env?.DB_HOST ? process.env.DB_HOST : "localhost",
+  host: process.env?.DB_HOST ? process.env.DB_HOST : "localhost",
 };
 
 // // This logic handles both local/IP connections and the more secure socket connection
