@@ -21,14 +21,13 @@ env:
   - variable: DB_PASSWORD
     secret: DB_PASSWORD
 
-  - variable: DB_HOST
-    value: localhost
-
-  - variable: DB_PORT
-    secret: DB_PORT
 
   - variable: DB_NAME
     secret: DB_NAME
 
   - variable: LOCAL
     value: false
+
+
+  - variable: DB_SOCKET_PATH
+    secret: DB_SOCKET_PATH
