@@ -1,15 +1,29 @@
-require("dotenv").config();
+// Load environment variables in development
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 // Import required modules
 
 const cors = require("cors"); // Best practice for APIs
 // 1. Import the Express library
 const express = require("express");
+const helmet = require("helmet");
 
 const createDeviceIdTable = require("./database");
 
 const bodyParser = require("body-parser");
 
-const mysql = require("mysql2");
+const { rateLimit } = require("express-rate-limit");
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: "draft-7", // draft-6: RateLimit-* headers; draft-7: combined RateLimit header
+  legacyHeaders: false, // X-RateLimit-* headers
+  // store: ... , // Use an external store for more precise rate limiting
+});
+
+// Apply the rate limiting middleware to all requests
 
 const pool = require("./db"); // Import the pool from your setup file
 
@@ -17,9 +31,11 @@ const pool = require("./db"); // Import the pool from your setup file
 const app = express();
 
 // Use middleware
+app.use(helmet());
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(bodyParser.json());
+app.use(limiter);
 createDeviceIdTable();
 
 // Load API keys from environment variables
@@ -37,7 +53,7 @@ if (!API_KEY_GOOGLE) {
 
 // 3. Define the port the server will run on
 // Uses the host's suggested port, or 3000 for local development
-const port = process?.env?.PORT || 3000;
+const port = 8080;
 
 app.get("/api/get_key_g", (req, res) => {
   /**
