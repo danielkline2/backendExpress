@@ -9,13 +9,14 @@ COPY package*.json ./
 
 
 # Install app dependencies
-RUN npm install --omit=dev --legacy-peer-deps
+RUN npm install --omit=dev 
+#RUN npm install 
 
 # Bundle app source
 COPY . .
 
 # Your app binds to port 3000
-EXPOSE 3000
+EXPOSE 8080
 
 # Define the command to run your app
 CMD [ "npm", "start" ]

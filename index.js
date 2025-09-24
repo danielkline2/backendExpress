@@ -1,5 +1,6 @@
 // Load environment variables in development
-if (process.env?.LOCAL === "true" || process.env?.LOCAL === undefined) {
+//if (true) {
+if (false) {
   require("dotenv").config();
 }
 // Import required modules
@@ -46,7 +47,7 @@ const DEV = process.env.DEV === "true"; // Convert string 'true' to boolean
 
 // Check if the required environment variables are set
 if (!API_KEY_GOOGLE) {
-  console.error("Error: 'GOOGLE_API_KEY' environment variable not found.");
+  console.error("Error: 'GOOGLE_API_KEY1' environment variable not found.");
   console.error(
     "Please set them using a .env file or your hosting provider's settings."
   );
@@ -55,7 +56,7 @@ if (!API_KEY_GOOGLE) {
 
 // 3. Define the port the server will run on
 // Uses the host's suggested port, or 3000 for local development
-const port = 3000;
+const port = 8080;
 
 app.get("/api/get_key_g", (req, res) => {
   /**
