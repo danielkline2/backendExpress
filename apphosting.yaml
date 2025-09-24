@@ -32,6 +32,3 @@ env:
 
   - variable: LOCAL
     value: false
-
-  - variable: DB_PASSWORD
-    secret: DB_PASSWORD
