@@ -1,0 +1,41 @@
+# Settings for Cloud Run
+runConfig:
+  minInstances: 2
+  maxInstances: 100
+  concurrency: 100
+  cpu: 2
+  memoryMiB: 1024
+
+# Environment variables and secrets
+env:
+
+  - variable: GOOGLE_API_KEY
+    secret: GOOGLE_API_KEY
+  
+  - variable: DEV
+    secret: DEV
+
+  - variable: DB_USER
+    secret: DB_USER
+
+  - variable: DB_PASSWORD
+    secret: DB_PASSWORD
+
+  - variable: DB_HOST
+    secret: DB_HOST
+
+  - variable: DB_PORT
+    secret: DB_PORT
+
+  - variable: DB_NAME
+    secret: DB_NAME
+
+  - variable: LOCAL
+    secret: LOCAL
+
+  - variable: DB_PASSWORD
+    secret: DB_PASSWORD
+
+  - 
+
+  
