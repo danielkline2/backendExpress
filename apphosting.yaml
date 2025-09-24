@@ -1,0 +1,33 @@
+# Settings for Cloud Run
+runConfig:
+  minInstances: 0        # Scale to zero to save money
+  maxInstances: 10       # A reasonable cap for starting out
+  concurrency: 80        # The default and recommended value
+  cpu: 1                 # Sufficient for most Node.js apps
+  memoryMiB: 512         # A good starting point for memory
+
+# Environment variables and secrets
+env:
+
+  - variable: GOOGLE_API_KEY
+    secret: GOOGLE_API_KEY
+  
+  - variable: DEV
+    secret: DEV
+
+  - variable: DB_USER
+    secret: DB_USER
+
+  - variable: DB_PASSWORD
+    secret: DB_PASSWORD
+
+
+  - variable: DB_NAME
+    secret: DB_NAME
+
+  - variable: LOCAL
+    value: false
+
+
+  - variable: DB_SOCKET_PATH
+    secret: DB_SOCKET_PATH
