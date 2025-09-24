@@ -16,7 +16,7 @@ const dbConfig = {
 
 // This logic handles both local/IP connections and the more secure socket connection
 if (!process.env.DB_SOCKET_PATH) {
-  dbConfig.host = process.env.DB_HOST || "localhost";
+  dbConfig.host = process.env.DB_HOST;
 } else {
 }
 
