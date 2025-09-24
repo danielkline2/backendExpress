@@ -14,8 +14,8 @@ RUN npm install --omit=dev --legacy-peer-deps
 # Bundle app source
 COPY . .
 
-# Your app binds to port 8080
-EXPOSE 8080
+# Your app binds to port 3000
+EXPOSE 3000
 
 # Define the command to run your app
 CMD [ "npm", "start" ]
