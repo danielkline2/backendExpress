@@ -1,0 +1,30 @@
+# before running with docker you need to add the secrets
+
+
+## Do not hard code secrets
+
+
+`printf "<your secret value>" | docker secret create SECRET_NAME -`
+
+
+how to build server locally
+
+   ` docker build -t your-express-app-name -f Dockerfile.local .`
+    `docker run -p 9090:8080 -e PORT=8080 your-express-app-name `
+
+
+I havent been able to make docker secrets work. i just run it with `node .` when i run it locally
+
+
+# If you do not know how to do docker secrets locally then dont run docker locally with secrets. The keys will be compromised 
+
+
+```
+UUID_TO_BIN()
+BIN_TO_UUID() --- dont need these anymore. changed how we handle the user ids 
+
+CREATE TABLE my_table (
+    id BINARY(16) DEFAULT (UUID_TO_BIN(UUID(), 1)) PRIMARY KEY,
+    name VARCHAR(255)
+);
+```
