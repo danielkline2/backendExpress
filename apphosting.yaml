@@ -32,6 +32,5 @@ env:
   - variable: DB_SOCKET_PATH
     secret: DB_SOCKET_PATH
 
-
 cloudSqlInstances:
   - phoenix-dev-470117:us-central1:pheonix-dev-db
