@@ -1,8 +1,8 @@
 // Load environment variables in development
-//if (true) {
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+// //if (true) {
+// if (process.env.NODE_ENV !== "production") {
+//   require("dotenv").config();
+// }
 
 // Import required modules
 
