@@ -28,3 +28,7 @@ CREATE TABLE my_table (
     name VARCHAR(255)
 );
 ```
+
+https://docs.cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy#mac-m1 
+
+for switching between running dev and prod
