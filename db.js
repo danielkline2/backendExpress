@@ -13,9 +13,14 @@ const dbConfig = {
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  ssl: {
-    ca: process.env.SERVER_CA,
-  },
+  ssl:
+    process.env.DB_SOCKET_PATH === "false"
+      ? {
+          ca: process.env.SERVER_CA,
+        }
+      : {
+          rejectUnauthorized: false,
+        },
 };
 
 // This logic handles both local/IP connections and the more secure socket connection
