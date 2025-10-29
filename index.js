@@ -1,10 +1,10 @@
 // Load environment variables in development
-if (false) {
-  // if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+// if (false) {
+//   // if (process.env.NODE_ENV !== "production") {
+//   require("dotenv").config();
+// }
 
-//
+// adding text
 // Import required modules
 
 const cors = require("cors"); // Best practice for APIs
