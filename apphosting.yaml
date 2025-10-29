@@ -6,6 +6,9 @@ runConfig:
   cpu: 1                 # Sufficient for most Node.js apps
   memoryMiB: 512         # A good starting point for memory
 
+  cloudsql:
+    instanceConnectionName: phoenix-dev-470117:us-east4:phoenix-dev-db
+
 # Environment variables and secrets
 env:
 
@@ -33,6 +36,6 @@ env:
     secret: DB_SOCKET_PATH
 
 
-cloudSqlInstances:
-  - phoenix-dev-470117:us-east4:phoenix-dev-db
+# cloudSqlInstances:
+#   - phoenix-dev-470117:us-east4:phoenix-dev-db
 
