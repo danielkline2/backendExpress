@@ -1,7 +1,7 @@
 // db.js - Your database connection file
 
 const mysql = require("mysql2");
-const fs = require("fs");
+// const fs = require("fs");
 const path = require("path");
 
 // Create a connection pool. This is much better for servers than createConnection.
