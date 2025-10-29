@@ -4,7 +4,6 @@ if (false) {
   require("dotenv").config();
 }
 
-// adding text
 // Import required modules
 
 const cors = require("cors"); // Best practice for APIs
