@@ -5,3 +5,4 @@ Dockerfile
 .dockerignore
 server.log
 server.pid
+.envProd
