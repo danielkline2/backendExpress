@@ -36,5 +36,5 @@ env:
 
 
 cloudSqlInstances:
-  - phoenix-prod-470117:us-east4:pheonix-prod-db
+  - phoenix-dev-470117:us-east4:phoenix-dev-db
 
