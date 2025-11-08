@@ -32,3 +32,11 @@ CREATE TABLE my_table (
 https://docs.cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy#mac-m1 
 
 for switching between running dev and prod
+
+For pushing to a github branch that triggers a redeploy. go to the Cloud Run console and go to the express-backend instance. Then go to "Edit and deploy new revision"
+Ad a new "Cloud SQL Connection" and select phoenix-dev-470117:us-east4:phoenix-dev-db
+
+
+Click "Serve this revision immediately"
+Click deploy 
+

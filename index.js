@@ -1,7 +1,7 @@
 // Load environment variables in development
 if (false) {
   // if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
+  require("dotenv").config({ path: "./.env" });
 }
 
 // Import required modules
