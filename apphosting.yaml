@@ -31,4 +31,9 @@ env:
     value: false
 
 
+  - variable: DB_SOCKET_PATH
+    secret: DB_SOCKET_PATH
+
+
+
 
