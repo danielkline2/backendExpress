@@ -16,13 +16,16 @@ const dbConfig = {
 };
 
 // This logic handles both local/IP connections and the more secure socket connection
-if (process.env.DB_SOCKET_PATH === "false") {
+if (process.env.LOCAL === "true") {
   dbConfig.host = process.env.DB_HOST;
   dbConfig.ssl = {
     ca: process.env.SERVER_CA,
   };
 } else {
-  dbConfig.socketPath = process.env.DB_SOCKET_PATH;
+  dbConfig.socketPath =
+    process.env.DEV === "true"
+      ? "/cloudsql/phoenix-dev-470117:us-east4:phoenix-dev-db"
+      : "/cloudsql/phoenix-prod-470117:us-east4:pheonix-prod-db";
 }
 
 let pool;

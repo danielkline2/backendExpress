@@ -31,10 +31,4 @@ env:
     value: false
 
 
-  - variable: DB_SOCKET_PATH
-    secret: DB_SOCKET_PATH
-
-
-cloudSqlInstances:
-  - phoenix-dev-470117:us-east4:phoenix-dev-db
 
