@@ -1,7 +1,9 @@
 // Load environment variables
 if (false) {
-  require("dotenv").config({ path: "./.envProd" });
+  require("dotenv").config({ path: "./.env" });
 }
+
+//adding text to retrigger deployment
 
 const cors = require("cors");
 const express = require("express");
