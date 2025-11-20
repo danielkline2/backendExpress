@@ -13,7 +13,7 @@ try {
       process.env.NODE_ENV === "production" ||
       process.env.FUNCTIONS_EMULATOR
     ) {
-      const serviceAccount = require(process.env.SERVICE_ACCOUNT);
+      const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT);
       admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
       });
@@ -41,7 +41,7 @@ async function createTopic(topicName) {
 }
 
 async function createUser(userId, username = "Anonymous", zipCode = "") {
-  console.log(`Creating/Updating user: ${userId}`);
+  // console.log(`Creating/Updating user: ${userId}`);
   const userRef = db.collection("users").doc(userId);
 
   // We use merge: true so we don't wipe out existing data if they log in again
@@ -56,11 +56,11 @@ async function createUser(userId, username = "Anonymous", zipCode = "") {
     { merge: true }
   );
 
-  console.log(`User ${userId} processed.`);
+  // console.log(`User ${userId} processed.`);
 }
 
 async function createPrompt(userId, topicId, promptText, reason) {
-  console.log(`Creating prompt for user ${userId} on topic ${topicId}`);
+  // console.log(`Creating prompt for user ${userId} on topic ${topicId}`);
 
   // Note: In a NoSQL structure, we typically trust the ID exists or handle the error gracefully.
   // For this implementation, we will simply store the reference.
@@ -75,7 +75,7 @@ async function createPrompt(userId, topicId, promptText, reason) {
   };
 
   const promptRef = await db.collection("prompts").add(promptData);
-  console.log(`Created prompt with ID: ${promptRef.id}`);
+  // console.log(`Created prompt with ID: ${promptRef.id}`);
   return promptRef.id;
 }
 
@@ -86,7 +86,7 @@ async function addResponseToPrompt(
   isFlagged,
   flagReason
 ) {
-  console.log(`Adding response to prompt ${promptId}`);
+  // console.log(`Adding response to prompt ${promptId}`);
 
   // In Firestore, we can store the response as a subcollection OR a separate collection.
   // Based on your previous file, we are using a subcollection.
@@ -102,7 +102,7 @@ async function addResponseToPrompt(
     is_flagged: isFlagged,
     created_at: admin.firestore.FieldValue.serverTimestamp(),
   });
-  console.log(`Response added to prompt ${promptId}`);
+  // console.log(`Response added to prompt ${promptId}`);
 }
 
 async function addEngagementLog(userId, actionType, points) {
@@ -155,14 +155,13 @@ async function getPromptWithResponses(promptId) {
 async function getUser(userId) {
   console.log("userId: ", userId);
   if (!userId) {
-    console.log("!userId");
     return null;
   }
-  console.log("hit 6");
+
   const userRef = db.collection("users").doc(userId);
-  console.log("hit 7");
+
   const doc = await userRef.get();
-  console.log("hit 8");
+
   if (!doc.exists) return null;
   return doc.data();
 }
