@@ -1,6 +1,6 @@
 // Load environment variables
-if (true) {
-  require("dotenv").config({ path: "./.envProd" });
+if (false) {
+  require("dotenv").config({ path: "./.env" });
 }
 
 const cors = require("cors");
