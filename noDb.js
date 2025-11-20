@@ -13,12 +13,18 @@ try {
       process.env.NODE_ENV === "production" ||
       process.env.FUNCTIONS_EMULATOR
     ) {
+      // Check if the variable exists before parsing
+      if (!process.env.SERVICE_ACCOUNT) {
+        throw new Error("process.env.SERVICE_ACCOUNT is missing!");
+      }
+
       const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT);
       admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
       });
       console.log("Initialized Firebase Admin (deployed environment).");
     } else {
+      // ... local logic ...
       const serviceAccount = require("./phoenix-prod-470117-firebase-adminsdk-fbsvc-1fc554671d.json");
       admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
@@ -29,6 +35,8 @@ try {
 } catch (e) {
   console.error("--- ERROR INITIALIZING FIREBASE ADMIN ---");
   console.error(e.message);
+  // STOP THE APP HERE. Do not continue.
+  process.exit(1);
 }
 
 const db = getFirestore("no-sql-prod");
