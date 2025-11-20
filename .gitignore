@@ -9,3 +9,5 @@ Dockerfile
 server.log
 server.pid
 .envProd
+uploadData.js
+phoenix-prod-470117-firebase-adminsdk-fbsvc-1fc554671d.json
