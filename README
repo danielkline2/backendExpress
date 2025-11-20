@@ -41,6 +41,51 @@ Click "Serve this revision immediately"
 Click deploy 
 
 
+```
+userId:{
+            username VARCHAR(50) UNIQUE,
+    zip_code VARCHAR(10),
+    congressional_district VARCHAR(50),
+    political_leaning VARCHAR(50),
+    engagement_score INT DEFAULT 0,
+    user_role VARCHAR(20) DEFAULT 'user',
+    referral_code VARCHAR(20) UNIQUE,
+    referred_by_userId VARCHAR(255) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+        }
+
+topic_id:{
+topic_name VARCHAR(100) UNIQUE NOT NULL
+}
+
+engagement_log_id:{
+    userId VARCHAR(255) NOT NULL, -- Matches users.userId
+    action_type VARCHAR(50) NOT NULL,
+    points_awarded INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+}
+
+promptId:{
+        userId VARCHAR(255) NOT NULL, -- Matches users.userId
+    topic_id INT NOT NULL,
+    prompt_text TEXT,
+    is_flagged BOOLEAN DEFAULT FALSE,
+    flag_reason TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+}
+
+response_id:{
+    prompt_id INT NOT NULL,
+    response_text TEXT,
+    api_metadata JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_flagged BOOLEAN DEFAULT FALSE,
+    flag_reason TEXT,
+}
+
+
+```
 make sure the cloudrun -> revision tab -> service account (looks like an email. copy that) has the proper access. go to iam & admin. give that copied service account the access
 
 make sure user permissions are there for db user

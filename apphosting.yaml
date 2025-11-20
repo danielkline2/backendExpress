@@ -33,6 +33,9 @@ env:
 
   - variable: DB_SOCKET_PATH
     secret: DB_SOCKET_PATH
+  
+  - variable: SERVICE_ACCOUNT
+    secret: SERVICE_ACCOUNT
 
 
 

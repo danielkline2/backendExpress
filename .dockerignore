@@ -6,3 +6,4 @@ Dockerfile
 server.log
 server.pid
 .envProd
+uploadData.js
